@@ -35,12 +35,15 @@
     <!-- =================================================================================================== -->
     <!-- Exercises Lost World -->
 
+    <!-- EXERCISE 1 -->
     <div style="margin: 60px; text-align: center;">
       <h1>Ejercicios Lost World</h1>
-
       <div style="margin: 30px;" class="containerExercises">
-
       </div>
+    </div>
+
+    <!-- EXERCISE 2 -->
+    <div style="margin: 60px; text-align: -webkit-center;" class="tableContainer">
     </div>
     <!-- =================================================================================================== -->
 
@@ -156,6 +159,7 @@
   <!-- =================================================================================================== -->
   <!-- Exercises Lost World -->
   <script>
+    // EXERCISE 1
     const containerExercise = document.getElementsByClassName('containerExercises');
     const linksList = document.links;
 
@@ -200,6 +204,43 @@
     }
     numLinksToJurassic.innerHTML = `<strong>Number links at paragraphs: </strong> ${counterLinksParagraphs}`;
     containerExercise[0].appendChild(numLinksAtPagragraphs);
+
+    // EXERCISE 2
+    const MOUNTAINS = [
+      { name: "Kilimanjaro", height: 5895, place: "Tanzania" },
+      { name: "Everest", height: 8848, place: "Nepal" },
+      { name: "Mount Fuji", height: 3776, place: "Japan" },
+      { name: "Vaalserberg", height: 323, place: "Netherlands" },
+      { name: "Denali", height: 6168, place: "United States" },
+      { name: "Popocatepetl", height: 5465, place: "Mexico" },
+      { name: "Mont Blanc", height: 4808, place: "Italy/France" }];
+
+    const containerExerciseTable = document.getElementsByClassName('tableContainer');
+    const mountainsTable = document.createElement("table");
+    // mountainsTable.style.border = "1px solid";
+    mountainsTable.style.textAlignLast = "center";
+    mountainsTable.style.width = "-webkit-fill-available";
+    const headerTableRow = document.createElement("tr");
+    mountainsTable.appendChild(headerTableRow);
+
+    const tableHeaders = Object.keys(MOUNTAINS[0]);
+    for (let i = 0; i < tableHeaders.length; i++) {
+      const headerTable = document.createElement("th");
+      headerTable.style.border = "1px solid";
+      headerTable.innerText = tableHeaders[i];
+      headerTableRow.appendChild(headerTable);
+    }
+
+    for (let i = 0; i < MOUNTAINS.length; i++) {
+      const rowTable = document.createElement("tr");
+      const { name, height, place } = MOUNTAINS[i];
+      rowTable.innerHTML = `
+        <td style="border: 1px solid;">${name}</td>
+        <td style="border: 1px solid;">${height}</td>
+        <td style="border: 1px solid;">${place}</td>`;
+      mountainsTable.appendChild(rowTable);
+    }
+    containerExerciseTable[0].appendChild(mountainsTable);
   </script>
   <!-- =================================================================================================== -->
 
